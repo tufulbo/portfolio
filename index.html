@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" type="image/png" href="icon.png" />
+  <title>
+    Juan Cruz Dal Lago | A JavaScript & Python Developer, Argentina.
+  </title>
+  <link rel="stylesheet" href="index.css" />
+</head>
+
+<body>
+
+  <header class="header" role="banner" id="top">
+    <div class="row">
+      <nav class="nav" role="navigation">
+        <ul class="nav__items">
+          <li class="nav__item"><a href="#work" class="nav__link">Work</a></li>
+          </li>
+          <li class="nav__item">
+            <a href="#contact" class="nav__link">Contact</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <div class="header__text-box row">
+      <div class="header__text">
+        <h1 class="heading-primary">
+          <span>Juan Cruz Dal Lago</span>
+        </h1>
+        <p>Juan Cruz Dal Lago | A JavaScript & Python Developer, Argentina.</p>
+        <a href="#contact" class="btn btn--pink">Get in touch</a>
+      </div>
+    </div>
+  </header>
+
+  <main role="main">
+
+    <!-- ***** Work ***** -->
+
+    <section class="work" id="work">
+      <div class="row">
+        <h2>My Work</h2>
+        <div class="work__boxes">
+
+          <div class="work__box">
+            <div class="work__text">
+              <h3>
+                <img src="./images/logo.webp" class="work__code" alt="GitHub">
+              </h3>
+              <p>
+                A YML/JSON File Translator program that overperforms other
+                similar tools in the market.
+              </p>
+              <ul class="work__list">
+                <li>Python</li>
+              </ul>
+
+              <div class="work__links">
+                <a href="https://tufulbo.github.io/ReSplitter/" target="_blank" class="link__text">
+                  Visit Site <span>&rarr;</span>
+                </a>
+                <a href="https://tufulbo.github.io/ReSplitter/" title="View Source Code" target="_blank">
+                  <img src="./images/github.svg" class="work__code" alt="GitHub">
+                </a>
+              </div>
+            </div>
+            <div class="work__image-box">
+              <img src="./images/8.webp" class="work__image" alt="Project 1" />
+            </div>
+          </div>
+
+          <div class="work__box">
+            <div class="work__text">
+              <h3>Database Leaderboards</h3>
+              <p>
+                Make leaderboards/playerdata placeholders of any data stored in a MySQL database 
+              </p>
+              <ul class="work__list">
+                <li>JavaScript</li>
+              </ul>
+
+              <div class="work__links">
+                <a href="https://www.spigotmc.org/resources/database-leaderboards-tops-data.128573/" class="link__text">
+                  Visit Site <span>&rarr;</span>
+                </a>
+              </div>
+            </div>
+            <div class="work__image-box">
+              <img src="./images/dbl.webp" class="work__image" alt="Project 1" />
+            </div>
+          </div>
+
+          <div class="work__box">
+            <div class="work__text">
+              <h3>Client's Plugin Requests</h3>
+              <p>
+                Some plugins that my clients have requested me to develop for them.
+              </p>
+              <ul class="work__list">
+                <li>JavaScript</li>
+              </ul>
+              <p>
+                CarEnhancements - An addon for Vehicles plugin that adds a /garage and /carshop commands to store and buy vehicles.
+                and modifies some vehabehaviors to make the car storage totally virtual.
+              </p>
+              <p>
+                AttackDog - A modification of the OpenSource AttackWolf plugin, upgraded it from 1.8 to 1.21.8
+                and changed the database storage to H2, optmized the code and added a Collar Color changer
+                and a Pet Color name changer and added the posibility to use Custom Heads in the GUI'S.
+              </p>
+              <p>
+                And some more little things like placeholders or chat generic plugins.
+              </p>
+            </div>
+            <div class="work__image-box">
+              <div class="slider">
+                <div class="slider-container">
+                  <div class="slide active">
+                    <img src="./images/dd1.webp" class="work__image" alt="Project 1" />
+                  </div>
+                  <div class="slide">
+                    <img src="./images/dd2.webp" class="work__image" alt="Project 2" />
+                  </div>
+                  <div class="slide">
+                    <img src="./images/dd3.webp" class="work__image" alt="Project 3" />
+                  </div>
+                  <div class="slide">
+                    <img src="./images/dd4.webp" class="work__image" alt="Project 4" />
+                  </div>
+                  <div class="slide">
+                    <img src="./images/dd5.webp" class="work__image" alt="Project 5" />
+                  </div>
+                </div>
+                <button class="slider-btn prev-btn" aria-label="Previous image">
+                  <span>&larr;</span>
+                </button>
+                <button class="slider-btn next-btn" aria-label="Next image">
+                  <span>&rarr;</span>
+                </button>
+                <div class="slider-dots">
+                  <span class="dot active" data-slide="0"></span>
+                  <span class="dot" data-slide="1"></span>
+                  <span class="dot" data-slide="2"></span>
+                  <span class="dot" data-slide="3"></span>
+                  <span class="dot" data-slide="4"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <section class="contact" id="contact">
+    <div class="row">
+      <h2>Get in Touch</h2>
+      <div class="contact__info">
+        <a href="mailto:juanczdll@gmail.com" class="btn">juanczdll@gmail.com</a>
+        <a class="btn" onclick="copyDiscord()">Copy Discord ID</a>
+      </div>
+    </div>
+  </section>
+
+  <a href="#top" class="back-to-top" title="Back to Top">
+    <img src="./images/arrow-up.svg" alt="Back to Top" class="back-to-top__image"/>
+  </a>
+  <script src="./index.js"></script>
+</body>
+
+</html>
