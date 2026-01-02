@@ -1,6 +1,6 @@
 
 const handleFirstTab = (e) => {
-  if(e.key === 'Tab') {
+  if (e.key === 'Tab') {
     document.body.classList.add('user-is-tabbing')
 
     window.removeEventListener('keydown', handleFirstTab)
@@ -46,50 +46,75 @@ class ImageSlider {
     this.slides = this.slider.querySelectorAll('.slide');
     this.prevBtn = this.slider.querySelector('.prev-btn');
     this.nextBtn = this.slider.querySelector('.next-btn');
-    this.dots = this.slider.querySelectorAll('.dot');
-    
+
     this.currentSlide = 0;
     this.totalSlides = this.slides.length;
-    
+
+    // Set dynamic widths
+    this.sliderContainer.style.width = `${this.totalSlides * 100}%`;
+    this.slides.forEach(slide => {
+      slide.style.width = `${100 / this.totalSlides}%`;
+    });
+
+    this.createDots();
     this.init();
   }
-  
+
+  createDots() {
+    this.dotsContainer = this.slider.querySelector('.slider-dots');
+    if (!this.dotsContainer) return;
+
+    // Clear existing dots
+    this.dotsContainer.innerHTML = '';
+
+    // Create new dots
+    for (let i = 0; i < this.totalSlides; i++) {
+      const dot = document.createElement('span');
+      dot.classList.add('dot');
+      if (i === 0) dot.classList.add('active');
+      dot.setAttribute('data-slide', i);
+      dot.addEventListener('click', () => this.goToSlide(i));
+      this.dotsContainer.appendChild(dot);
+    }
+
+    this.dots = this.dotsContainer.querySelectorAll('.dot');
+  }
+
   init() {
     this.showSlide(this.currentSlide);
-    
+
     this.prevBtn.addEventListener('click', () => this.prevSlide());
     this.nextBtn.addEventListener('click', () => this.nextSlide());
-    
-    this.dots.forEach((dot, index) => {
-      dot.addEventListener('click', () => this.goToSlide(index));
-    });
   }
-  
+
   showSlide(index) {
     // Update slides
     this.slides.forEach((slide, i) => {
       slide.classList.toggle('active', i === index);
     });
-    
+
     // Update dots
-    this.dots.forEach((dot, i) => {
-      dot.classList.toggle('active', i === index);
-    });
-    
+    if (this.dots) {
+      this.dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === index);
+      });
+    }
+
     // Move slider container
-    this.sliderContainer.style.transform = `translateX(-${index * 20}%)`;
+    const translateValue = (index * 100) / this.totalSlides;
+    this.sliderContainer.style.transform = `translateX(-${translateValue}%)`;
   }
-  
+
   nextSlide() {
     this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
     this.showSlide(this.currentSlide);
   }
-  
+
   prevSlide() {
     this.currentSlide = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
     this.showSlide(this.currentSlide);
   }
-  
+
   goToSlide(index) {
     this.currentSlide = index;
     this.showSlide(this.currentSlide);
@@ -97,10 +122,10 @@ class ImageSlider {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  const slider = document.querySelector('.slider');
-  if (slider) {
+  const sliders = document.querySelectorAll('.slider');
+  sliders.forEach(slider => {
     new ImageSlider(slider);
-  }
+  });
 });
 
 function copyDiscord() {

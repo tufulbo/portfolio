@@ -42,7 +42,7 @@
 
     --container-max-width: 1180px;
     --container-normal-width: 800px;
-    --container-medium-width: 700px; 
+    --container-medium-width: 700px;
     --container-small-width: 500px;
 
     --gutter-huge: 12rem;
@@ -55,7 +55,8 @@
 }
 
 html {
-    font-size: 62.5%; /* (16/10)*100 = 62.5% => 1rem = 10px */
+    font-size: 62.5%;
+    /* (16/10)*100 = 62.5% => 1rem = 10px */
     box-sizing: border-box;
     scroll-behavior: smooth;
 }
@@ -178,7 +179,7 @@ p {
 }
 
 @media(max-width: 900px) {
-    p { 
+    p {
         max-width: var(--container-small-width);
     }
 }
@@ -219,7 +220,7 @@ body:not(.user-is-tabbing) a:focus {
     padding: 1rem 4.2rem;
     text-decoration: none;
     color: inherit;
-    border: 1px solid  var(--pink);
+    border: 1px solid var(--pink);
     font-weight: 400;
 }
 
@@ -404,7 +405,7 @@ body:not(.user-is-tabbing) a:focus {
 /* --------------------------------------- */
 
 .header {
-    background: linear-gradient(rgba(0,0,0, .1), rgba(0,0,0, .4)), 
+    background: linear-gradient(rgba(0, 0, 0, .1), rgba(0, 0, 0, .4)),
         url('./images/header.jpg');
     height: 100vh;
     background-size: cover;
@@ -556,7 +557,7 @@ body:not(.user-is-tabbing) a:focus {
     .about__text {
         flex: 0 0 35%;
     }
-    
+
     .about__photo-container {
         flex: 1;
         margin: 0 var(--gutter-huge) 0 0;
@@ -609,7 +610,7 @@ body:not(.user-is-tabbing) a:focus {
 @media(max-width: 500px) {
     .footer {
         padding: var(--gutter-medium) 0;
-    } 
+    }
 }
 
 /* --------------------------------------- */
@@ -619,13 +620,28 @@ body:not(.user-is-tabbing) a:focus {
 .slider {
     position: relative;
     width: 100%;
-    height: 100%;
+    height: 500px;
     overflow: hidden;
     border-radius: 8px;
+    background: #0a0a0a;
+    /* Dark background for empty space */
+}
+
+@media(max-width: 900px) {
+    .slider {
+        height: 400px;
+    }
+}
+
+@media(max-width: 600px) {
+    .slider {
+        height: 350px;
+    }
 }
 
 .slider-container {
     display: flex;
+    align-items: center;
     width: 500%;
     height: 100%;
     transition: transform 0.5s ease-in-out;
@@ -639,6 +655,7 @@ body:not(.user-is-tabbing) a:focus {
     align-items: center;
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
+    padding: 20px;
 }
 
 .slide.active {
@@ -651,6 +668,9 @@ body:not(.user-is-tabbing) a:focus {
     width: auto;
     height: auto;
     object-fit: contain;
+    /* Support any resolution without cropping */
+    display: block;
+    margin: auto;
     border-radius: 8px;
 }
 
